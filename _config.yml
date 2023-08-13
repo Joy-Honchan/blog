@@ -7,7 +7,7 @@ title: Hexo
 subtitle: ""
 description: ""
 keywords:
-author: John Doe
+author: Joy Fan
 language: en
 timezone: ""
 
@@ -97,7 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: my-theme
+theme: next
 # theme: landscape
 
 # Deployment
