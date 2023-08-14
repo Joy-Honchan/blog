@@ -112,12 +112,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -134,6 +134,168 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joy-honchan.github.io/blog/2023/08/14/forloop/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Joy Fan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2023/08/14/forloop/" class="post-title-link" itemprop="url">三種 For Loop 一次學</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-08-14 23:38:28 / Modified: 23:46:04" itemprop="dateCreated datePublished" datetime="2023-08-14T23:38:28+08:00">2023-08-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>通常初學者學到 for loop，應該都是從以下陳述式開始學</p>
+<blockquote>
+<p>for( 起點; 終點; 如何遞增 ){ … }</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&quot;Ben&quot;</span>, <span class="string">&quot;Ken&quot;</span>, <span class="string">&quot;Men&quot;</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;arr[i]&#125;</span> is here!`</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// &quot;Ben is here!&quot;</span></span><br><span class="line"><span class="comment">// &quot;Ken is here!&quot;</span></span><br><span class="line"><span class="comment">// &quot;Men is here!&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>但 for loop 還有另外兩種</p>
+<ol>
+<li>for ( <strong><em>item</em></strong> of <strong><em>iteration</em></strong> ) loop value，只能用在可 iterate 的物件(Array, String, Map)，所以一般 Object 不可用</li>
+</ol>
+<h3 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&quot;Ben&quot;</span>, <span class="string">&quot;Ken&quot;</span>, <span class="string">&quot;Men&quot;</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> name <span class="keyword">of</span> arr) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;name&#125;</span> is here!`</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// &quot;Ben is here!&quot;</span></span><br><span class="line"><span class="comment">// &quot;Ken is here!&quot;</span></span><br><span class="line"><span class="comment">// &quot;Men is here!&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&quot;ab c&quot;</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> letter <span class="keyword">of</span> str) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`It&#x27;s <span class="subst">$&#123;letter&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// &quot;It&#x27;s a&quot;</span></span><br><span class="line"><span class="comment">// &quot;It&#x27;s b&quot;</span></span><br><span class="line"><span class="comment">// &quot;It&#x27;s  &quot;</span></span><br><span class="line"><span class="comment">// &quot;It&#x27;s c&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>for( <strong><em>item</em></strong> in <strong><em>iteration</em></strong> ) loop key，<br>用在有 key 的，如 Array 和 Object</li>
+</ol>
+<h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = &#123; <span class="title class_">Ben</span>: <span class="string">&quot;teacher&quot;</span>, <span class="title class_">Ken</span>: <span class="string">&quot;student&quot;</span>, <span class="title class_">Men</span>: <span class="string">&quot;parent&quot;</span> &#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> name <span class="keyword">in</span> arr) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;name&#125;</span> is <span class="subst">$&#123;arr[name]&#125;</span>!`</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// &quot;Ben is teacher!&quot;</span></span><br><span class="line"><span class="comment">// &quot;Ken is student!&quot;</span></span><br><span class="line"><span class="comment">// &quot;Men is parent!&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Array-1"><a href="#Array-1" class="headerlink" title="Array"></a>Array</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> index <span class="keyword">in</span> arr) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;arr[index]&#125;</span> is No.<span class="subst">$&#123;index&#125;</span>!`</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// &quot;a is No.0!&quot;</span></span><br><span class="line"><span class="comment">// &quot;b is No.1!&quot;</span></span><br><span class="line"><span class="comment">// &quot;c is No.2!&quot;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joy-honchan.github.io/blog/2023/08/14/recursion/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Joy Fan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2023/08/14/recursion/" class="post-title-link" itemprop="url">Recursion 遞迴</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-08-14 23:35:36 / Modified: 23:45:33" itemprop="dateCreated datePublished" datetime="2023-08-14T23:35:36+08:00">2023-08-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="什麼是遞迴-Recursion"><a href="#什麼是遞迴-Recursion" class="headerlink" title="什麼是遞迴(Recursion)?"></a>什麼是遞迴(<strong><em>Recursion</em></strong>)?</h1><p>簡單來說，遞迴就是一個自己呼叫自己的函式。<br>為了避免無窮迴圈，在 Recursion 中必須要有一個出口機制(<strong><em>Base Case</em></strong>)。可做為迭代(<strong><em>iteration</em></strong>)，如 for 、 while loop 的替代，但通常效率及記憶體使用量都較差。</p>
+<h2 id="題目範例"><a href="#題目範例" class="headerlink" title="題目範例"></a>題目範例</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">請寫出一函式 countDown，放入數字參數 n 後執行會照順序 console 出 Only n left, Only n-1 left... Only 2 left, Only 1 left, Done.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// iteration Example</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">countDown</span>(<span class="params">n</span>) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = n; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Only <span class="subst">$&#123;i&#125;</span> left`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Done!&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Recursion Example</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">countDownRecursive</span>(<span class="params">n</span>) &#123;</span><br><span class="line">  <span class="comment">// 先設定出口</span></span><br><span class="line">  <span class="keyword">if</span> (n &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Done!&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Only <span class="subst">$&#123;n&#125;</span> left`</span>);</span><br><span class="line">  <span class="title function_">countDownRecursive</span>(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
