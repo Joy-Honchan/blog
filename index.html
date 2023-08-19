@@ -112,12 +112,12 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -134,6 +134,105 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://joy-honchan.github.io/blog/2023/08/19/useContext/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Joy Fan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2023/08/19/useContext/" class="post-title-link" itemprop="url">useContext 介紹</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-08-19 22:14:43 / Modified: 22:35:51" itemprop="dateCreated datePublished" datetime="2023-08-19T22:14:43+08:00">2023-08-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>根據 React 官方文件，useContext 可以解決 Prop Drilling 的問題，但 Prop Drilling 是什麼呢? Context 又是什麼?</p>
+<h1 id="名詞解釋"><a href="#名詞解釋" class="headerlink" title="名詞解釋"></a>名詞解釋</h1><h2 id="Prop-Drilling"><a href="#Prop-Drilling" class="headerlink" title="Prop Drilling"></a>Prop Drilling</h2><p>在 React 中，傳統傳遞資料的方法是由 Parent Component 傳 Prop 給 Child Component，但如果要傳到更深層的 Component 或是同一層的 Components 互傳，就會造成 Component 接收和傳遞自身不需要的 Prop，因為在樹狀圖看起來 Prop 將 Component 鑽穿，所以叫 Drill (鑽孔)。</p>
+<h2 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h2><p>Context 可以讓一個 Parent component 傳遞資料到旗下的所有 Component。<br>這個資料投射的概念叫 flux。做法是將資料放在一個 context 裡，哪個 Component 需要使用再 import 來使用。</p>
+<h1 id="Context-可以解決什麼"><a href="#Context-可以解決什麼" class="headerlink" title="Context 可以解決什麼?"></a>Context 可以解決什麼?</h1><ol>
+<li>Prop 的 Source Component 離 Receive Component 太遠</li>
+<li>相同的 Prop 要同時傳遞給多個 Component</li>
+</ol>
+<h2 id="其他解決方案"><a href="#其他解決方案" class="headerlink" title="其他解決方案"></a>其他解決方案</h2><ol>
+<li>如果不用傳太多層，傳送 Prop 還是較佳的方法</li>
+<li>試著抽出元件並將 JSX 當作 Prop</li>
+</ol>
+<h2 id="使用情境"><a href="#使用情境" class="headerlink" title="使用情境"></a>使用情境</h2><p>每個 Component 都需要知道的資料</p>
+<ol>
+<li>Theme：如 Dark mode</li>
+<li>User info：如：登入狀態、使用者身分不同會 render 不同 Component 等</li>
+</ol>
+<p>資料本身及改變他的 function 都可放入 context 中</p>
+<h1 id="useContext-使用方式"><a href="#useContext-使用方式" class="headerlink" title="useContext 使用方式"></a>useContext 使用方式</h1><h2 id="createContext-initialValue"><a href="#createContext-initialValue" class="headerlink" title="createContext( initialValue )"></a>createContext( initialValue )</h2><p>創建一個 context，可以把它想像成一筆資料</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通常會獨立建立一個檔案</span></span><br><span class="line"><span class="comment">// LevelContext.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title class_">LevelContext</span> = <span class="title function_">createContext</span>(<span class="number">0</span>);</span><br><span class="line"><span class="comment">// 如同 const [ data, setData ] = useState(null) 裡的 data</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Context-Provider"><a href="#Context-Provider" class="headerlink" title="Context.Provider"></a>Context.Provider</h2><p>用 Context.Provider 設定此 context 的影響範圍及用 value 屬性提供值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Source Component</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">LevelContext</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;./LevelContext.js&#x27;</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;section&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">LevelContext.Provider</span> <span class="attr">value</span>=<span class="string">&#123;5&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">				&#123;children&#125;</span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;/<span class="name">LevelContext.Provider</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br></pre></td></tr></table></figure>
+
+<h2 id="useContext"><a href="#useContext" class="headerlink" title="useContext"></a>useContext</h2><p>用 useContext 指定要收哪一個 Context 的資料</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Receive Component</span></span><br><span class="line"><span class="keyword">import</span> &#123; useContext&#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">LevelContext</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;./LevelContext.js&#x27;</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">const</span> dataFromContext = <span class="title function_">useContext</span>(<span class="title class_">LevelContext</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>💡 甚至可以將從上層 Context 接收到的資料加工後再傳下去，因為 useContext 會去找距離最近的 Provider，return 該值。<br>當 return 回來的值改變，就會觸發 re-render</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useContext &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">LevelContext</span> &#125; <span class="keyword">from</span> <span class="string">&quot;./LevelContext&quot;</span>;</span><br><span class="line">...</span><br><span class="line">  <span class="keyword">const</span> <span class="attr">level</span>: number = <span class="title function_">useContext</span>(<span class="title class_">LevelContext</span>);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;section&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">LevelContext.Provider</span> <span class="attr">value</span>=<span class="string">&#123;level</span> + <span class="attr">1</span>&#125;&gt;</span></span></span><br><span class="line"><span class="language-xml">        &#123;children&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">LevelContext.Provider</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
