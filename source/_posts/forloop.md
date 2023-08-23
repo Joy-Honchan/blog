@@ -1,6 +1,6 @@
 ---
 title: 三種 For Loop 一次學
-date: 2023-08-14 23:38:28
+date: 2023-08-09
 tags: [For Loop, JavaScript]
 ---
 

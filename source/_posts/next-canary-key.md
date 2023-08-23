@@ -1,6 +1,6 @@
 ---
 title: next@canary 與 map 時 key 的問題
-date: 2023-08-15 21:56:31
+date: 2023-08-15
 tags: [Next, Error Shooting]
 ---
 

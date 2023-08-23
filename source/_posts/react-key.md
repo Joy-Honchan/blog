@@ -1,6 +1,7 @@
 ---
 title: 為什麼不用 Index 做 React List Item 的 key?
-tags: React
+date: 2023-04-11
+tags: [React]
 ---
 
 “If you don’t add key to each mapped element, React will b\*tch about it” 這是我在某個 tutorial 裡聽到的。因為只要將 index 加上就可以避免報錯，我也就沒有太在意到底 key 的用意為何。
