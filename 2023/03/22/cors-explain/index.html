@@ -22,26 +22,26 @@
     <meta name="description" content="當網頁向 API 要求資料時，如果網頁的 URL 與 API URL 不相同時，瀏覽器會報錯 Why因為瀏覽器大多有同源政策安全機制，讓網頁可自由向自己的 URL 送出請求，但對其他 URL 的請求會被拒絕。 12OK&#x3D;&gt; 在 cat.com 的網頁向 cat.com&#x2F;api&#x2F;users 發送請求NG&#x3D;&gt; 在 cat.com 的網頁向 dog.com&#x2F;api&#x2F;users 發送請求  如">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CORS 跨域資源共享">
-<meta property="og:url" content="https://joy-honchan.github.io/blog/2023/08/15/cors-explain/index.html">
+<meta property="og:url" content="https://joy-honchan.github.io/blog/2023/03/22/cors-explain/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="當網頁向 API 要求資料時，如果網頁的 URL 與 API URL 不相同時，瀏覽器會報錯 Why因為瀏覽器大多有同源政策安全機制，讓網頁可自由向自己的 URL 送出請求，但對其他 URL 的請求會被拒絕。 12OK&#x3D;&gt; 在 cat.com 的網頁向 cat.com&#x2F;api&#x2F;users 發送請求NG&#x3D;&gt; 在 cat.com 的網頁向 dog.com&#x2F;api&#x2F;users 發送請求  如">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://joy-honchan.github.io/blog/2023/08/15/cors-explain/cors-origin.png">
-<meta property="og:image" content="https://joy-honchan.github.io/blog/2023/08/15/cors-explain/cors-access-control-allow-origin.png">
-<meta property="og:image" content="https://joy-honchan.github.io/blog/2023/08/15/cors-explain/cors-preflight.png">
-<meta property="article:published_time" content="2023-08-15T14:05:12.000Z">
-<meta property="article:modified_time" content="2023-08-15T14:33:05.995Z">
+<meta property="og:image" content="https://joy-honchan.github.io/blog/2023/03/22/cors-explain/cors-origin.png">
+<meta property="og:image" content="https://joy-honchan.github.io/blog/2023/03/22/cors-explain/cors-access-control-allow-origin.png">
+<meta property="og:image" content="https://joy-honchan.github.io/blog/2023/03/22/cors-explain/cors-preflight.png">
+<meta property="article:published_time" content="2023-03-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-23T15:31:13.955Z">
 <meta property="article:author" content="Joy Fan">
 <meta property="article:tag" content="CORS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://joy-honchan.github.io/blog/2023/08/15/cors-explain/cors-origin.png">
+<meta name="twitter:image" content="https://joy-honchan.github.io/blog/2023/03/22/cors-explain/cors-origin.png">
 
 
-<link rel="canonical" href="https://joy-honchan.github.io/blog/2023/08/15/cors-explain/">
+<link rel="canonical" href="https://joy-honchan.github.io/blog/2023/03/22/cors-explain/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://joy-honchan.github.io/blog/2023/08/15/cors-explain/","path":"2023/08/15/cors-explain/","title":"CORS 跨域資源共享"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://joy-honchan.github.io/blog/2023/03/22/cors-explain/","path":"2023/03/22/cors-explain/","title":"CORS 跨域資源共享"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>CORS 跨域資源共享 | Hexo</title>
@@ -127,7 +127,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -154,7 +154,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://joy-honchan.github.io/blog/2023/08/15/cors-explain/">
+    <link itemprop="mainEntityOfPage" href="https://joy-honchan.github.io/blog/2023/03/22/cors-explain/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -182,9 +182,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-08-15 22:05:12 / Modified: 22:33:05" itemprop="dateCreated datePublished" datetime="2023-08-15T22:05:12+08:00">2023-08-15</time>
+      <time title="Created: 2023-03-22 00:00:00" itemprop="dateCreated datePublished" datetime="2023-03-22T00:00:00+08:00">2023-03-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-08-23 23:31:13" itemprop="dateModified" datetime="2023-08-23T23:31:13+08:00">2023-08-23</time>
     </span>
 
   
@@ -202,10 +208,10 @@
 
 <p>如果沒有同源政策可能會發生的情況：不肖網站在使用者不知情的情況下向銀行網站發送轉帳請求。</p>
 <h2 id="How"><a href="#How" class="headerlink" title="How"></a>How</h2><p>瀏覽器會阻擋非同源的 Response。發送請求時，Request Header 自帶 <strong>Origin</strong> 屬性。</p>
-<img src="/blog/2023/08/15/cors-explain/cors-origin.png" class="">
+<img src="/blog/2023/03/22/cors-explain/cors-origin.png" class="">
 
 <p>Server 回傳時，須設定帶 <strong>Access-Control-Allow-Origin</strong> 屬性。</p>
-<img src="/blog/2023/08/15/cors-explain/cors-access-control-allow-origin.png" class="">
+<img src="/blog/2023/03/22/cors-explain/cors-access-control-allow-origin.png" class="">
 
 <p>瀏覽器會對比以上兩個屬性，決定是否讓請求通過。</p>
 <p>所以 CORS 問題只能從 Server 端解決。</p>
@@ -235,7 +241,7 @@
 <p>Response Header 會包括 <strong>Access-Control-Allow-Method:</strong> 可通過的 request 方法。</p>
 <p>Request Header 會包括 <strong>Access-Control-Request-Method:</strong> 準備要執行的 request 方法。</p>
 <p>此次 request 回報正確後才會發送真正的 request。</p>
-<img src="/blog/2023/08/15/cors-explain/cors-preflight.png" class="">
+<img src="/blog/2023/03/22/cors-explain/cors-preflight.png" class="">
 
 <p>如果要短時間內多次執行 PUT 或 POST，可以設定 preflight 結果的快取&#x3D;&gt; <strong>Access-Control-Max-Age</strong></p>
 <h2 id="CORS-in-Express-js"><a href="#CORS-in-Express-js" class="headerlink" title="CORS in Express.js"></a>CORS in Express.js</h2><p>以 Express 為例，可使用 cors 套件增加請求的白名單。</p>
@@ -261,13 +267,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/blog/2023/08/15/next-canary-key/" rel="prev" title="next@canary 與 map 時 key 的問題">
-                  <i class="fa fa-angle-left"></i> next@canary 與 map 時 key 的問題
+                <a href="/blog/2023/03/13/recursion/" rel="prev" title="Recursion 遞迴">
+                  <i class="fa fa-angle-left"></i> Recursion 遞迴
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/blog/2023/08/19/useContext/" rel="next" title="useContext 介紹">
-                  useContext 介紹 <i class="fa fa-angle-right"></i>
+                <a href="/blog/2023/04/06/git-stash/" rel="next" title="git-stash">
+                  git-stash <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
