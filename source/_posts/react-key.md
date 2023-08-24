@@ -12,7 +12,9 @@ tags: [React]
 
 ### 實作
 
-[React App](https://05kmfb.csb.app/)
+{% iframe https://codesandbox.io/embed/why-key-in-react-list-05kmfb?fontsize=14&hidenavigation=1&theme=dark  %}
+
+<!-- [React App](https://05kmfb.csb.app/) -->
 
 1. ❌ 不加 key 的情況 - 因為無法辨認，每個 element 都會 re-render
 2. ⚠️ 用 index 或 name+index 的情況 - 如果資料是從上面堆疊導致 index 重新排序，會造成沒有變化的 element 也被 re-render

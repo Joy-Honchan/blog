@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ""
-description: ""
+title: Joy's Frontend Learning Blog
+subtitle: Records of what I've learned and mistakes I've made
+description:
 keywords:
 author: Joy Fan
 language: en
