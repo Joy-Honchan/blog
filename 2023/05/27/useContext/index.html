@@ -17,18 +17,18 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"joy-honchan.github.io","root":"/blog/","images":"/blog/images","scheme":"Muse","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/blog/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"joy-honchan.github.io","root":"/blog/","images":"/blog/images","scheme":"Muse","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/blog/js/config.js"></script>
 
     <meta name="description" content="根據 React 官方文件，useContext 可以解決 Prop Drilling 的問題，但 Prop Drilling 是什麼呢? Context 又是什麼? 名詞解釋Prop Drilling在 React 中，傳統傳遞資料的方法是由 Parent Component 傳 Prop 給 Child Component，但如果要傳到更深層的 Component 或是同一層的 Compone">
 <meta property="og:type" content="article">
 <meta property="og:title" content="useContext 介紹">
 <meta property="og:url" content="https://joy-honchan.github.io/blog/2023/05/27/useContext/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Joy&#39;s Frontend Learning Blog">
 <meta property="og:description" content="根據 React 官方文件，useContext 可以解決 Prop Drilling 的問題，但 Prop Drilling 是什麼呢? Context 又是什麼? 名詞解釋Prop Drilling在 React 中，傳統傳遞資料的方法是由 Parent Component 傳 Prop 給 Child Component，但如果要傳到更深層的 Component 或是同一層的 Compone">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-05-26T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-08-23T15:20:56.975Z">
-<meta property="article:author" content="Joy Fan">
+<meta property="article:author" content="Joy Honchan">
 <meta property="article:tag" content="React">
 <meta property="article:tag" content="Hook">
 <meta property="article:tag" content="useContext">
@@ -42,7 +42,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://joy-honchan.github.io/blog/2023/05/27/useContext/","path":"2023/05/27/useContext/","title":"useContext 介紹"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>useContext 介紹 | Hexo</title>
+<title>useContext 介紹 | Joy's Frontend Learning Blog</title>
   
 
 
@@ -65,6 +65,9 @@
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -72,9 +75,10 @@
 
     <a href="/blog/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">Hexo</p>
+      <p class="site-title">Joy's Frontend Learning Blog</p>
       <i class="logo-line"></i>
     </a>
+      <p class="site-subtitle" itemprop="description">Records of what I've learned and mistakes I've made</p>
   </div>
 
   <div class="site-nav-right">
@@ -85,6 +89,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
 
 
 
@@ -113,23 +121,34 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Joy Fan</p>
-  <div class="site-description" itemprop="description"></div>
+    <img class="site-author-image" itemprop="image" alt="Joy Honchan"
+      src="/blog/uploads/profilepic_rabbit.jpg">
+  <p class="site-author-name" itemprop="name">Joy Honchan</p>
+  <div class="site-description" itemprop="description">It's OK to feel panic sometimes while learning new stuffs. Just remeber, you'll become a better person then yesterday.</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">tags</span>
+          <a href="/blog/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Joy-Honchan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Joy-Honchan" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:chandler0204e@gmail.com" title="E-Mail → mailto:chandler0204e@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -155,17 +174,17 @@
     <link itemprop="mainEntityOfPage" href="https://joy-honchan.github.io/blog/2023/05/27/useContext/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="Joy Fan">
+      <meta itemprop="image" content="/blog/uploads/profilepic_rabbit.jpg">
+      <meta itemprop="name" content="Joy Honchan">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="Joy's Frontend Learning Blog">
+      <meta itemprop="description" content="It's OK to feel panic sometimes while learning new stuffs. Just remeber, you'll become a better person then yesterday.">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="useContext 介紹 | Hexo">
+      <meta itemprop="name" content="useContext 介紹 | Joy's Frontend Learning Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -182,13 +201,6 @@
       <span class="post-meta-item-text">Posted on</span>
 
       <time title="Created: 2023-05-27 00:00:00" itemprop="dateCreated datePublished" datetime="2023-05-27T00:00:00+08:00">2023-05-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-08-23 23:20:56" itemprop="dateModified" datetime="2023-08-23T23:20:56+08:00">2023-08-23</time>
     </span>
 
   
@@ -253,8 +265,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/blog/2023/08/09/forloop/" rel="next" title="三種 For Loop 一次學">
-                  三種 For Loop 一次學 <i class="fa fa-angle-right"></i>
+                <a href="/blog/2023/07/05/electron-concept/" rel="next" title="Electron 概念介紹">
+                  Electron 概念介紹 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -279,7 +291,7 @@
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
-    <span class="author" itemprop="copyrightHolder">Joy Fan</span>
+    <span class="author" itemprop="copyrightHolder">Joy Honchan</span>
   </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
