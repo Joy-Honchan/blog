@@ -5,7 +5,7 @@
 # Site
 title: Joy's Frontend Learning Blog
 subtitle: Records of what I've learned and mistakes I've made
-description:
+description: It's OK to feel panic sometimes while learning new stuffs. Just remeber, you'll become a better person then yesterday.
 keywords:
 author: Joy Honchan
 language: en
@@ -201,7 +201,7 @@ theme_config:
   menu:
     home: / || fa fa-home
     #about: /about/ || fa fa-user
-    # tags: /tags/ || fa fa-tags
+    tags: /tags/ || fa fa-tags
     #categories: /categories/ || fa fa-th
     archives: /archives/ || fa fa-archive
     #schedule: /schedule/ || fa fa-calendar
