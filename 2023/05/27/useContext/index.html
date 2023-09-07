@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"joy-honchan.github.io","root":"/blog/","images":"/blog/images","scheme":"Muse","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/blog/js/config.js"></script>
 
-    <meta name="description" content="根據 React 官方文件，useContext 可以解決 Prop Drilling 的問題，但 Prop Drilling 是什麼呢? Context 又是什麼? 名詞解釋Prop Drilling在 React 中，傳統傳遞資料的方法是由 Parent Component 傳 Prop 給 Child Component，但如果要傳到更深層的 Component 或是同一層的 Compone">
+    <meta name="description" content="根據 React 官方文件，useContext 可以解決 Prop Drilling 的問題，但 Prop Drilling 是什麼呢? Context 又是什麼?">
 <meta property="og:type" content="article">
 <meta property="og:title" content="useContext 介紹">
 <meta property="og:url" content="https://joy-honchan.github.io/blog/2023/05/27/useContext/index.html">
 <meta property="og:site_name" content="Joy&#39;s Frontend Learning Blog">
-<meta property="og:description" content="根據 React 官方文件，useContext 可以解決 Prop Drilling 的問題，但 Prop Drilling 是什麼呢? Context 又是什麼? 名詞解釋Prop Drilling在 React 中，傳統傳遞資料的方法是由 Parent Component 傳 Prop 給 Child Component，但如果要傳到更深層的 Component 或是同一層的 Compone">
+<meta property="og:description" content="根據 React 官方文件，useContext 可以解決 Prop Drilling 的問題，但 Prop Drilling 是什麼呢? Context 又是什麼?">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-05-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-08-23T15:20:56.975Z">
+<meta property="article:modified_time" content="2023-09-07T16:40:30.519Z">
 <meta property="article:author" content="Joy Honchan">
 <meta property="article:tag" content="React">
 <meta property="article:tag" content="Hook">
@@ -130,13 +130,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/blog/tags/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -213,6 +213,8 @@
     
     
     <div class="post-body" itemprop="articleBody"><p>根據 React 官方文件，useContext 可以解決 Prop Drilling 的問題，但 Prop Drilling 是什麼呢? Context 又是什麼?</p>
+<span id="more"></span>
+
 <h1 id="名詞解釋"><a href="#名詞解釋" class="headerlink" title="名詞解釋"></a>名詞解釋</h1><h2 id="Prop-Drilling"><a href="#Prop-Drilling" class="headerlink" title="Prop Drilling"></a>Prop Drilling</h2><p>在 React 中，傳統傳遞資料的方法是由 Parent Component 傳 Prop 給 Child Component，但如果要傳到更深層的 Component 或是同一層的 Components 互傳，就會造成 Component 接收和傳遞自身不需要的 Prop，因為在樹狀圖看起來 Prop 將 Component 鑽穿，所以叫 Drill (鑽孔)。</p>
 <h2 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h2><p>Context 可以讓一個 Parent component 傳遞資料到旗下的所有 Component。<br>這個資料投射的概念叫 flux。做法是將資料放在一個 context 裡，哪個 Component 需要使用再 import 來使用。</p>
 <h1 id="Context-可以解決什麼"><a href="#Context-可以解決什麼" class="headerlink" title="Context 可以解決什麼?"></a>Context 可以解決什麼?</h1><ol>

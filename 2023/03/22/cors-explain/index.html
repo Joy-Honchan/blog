@@ -19,18 +19,18 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"joy-honchan.github.io","root":"/blog/","images":"/blog/images","scheme":"Muse","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/blog/js/config.js"></script>
 
-    <meta name="description" content="當網頁向 API 要求資料時，如果網頁的 URL 與 API URL 不相同時，瀏覽器會報錯 Why因為瀏覽器大多有同源政策安全機制，讓網頁可自由向自己的 URL 送出請求，但對其他 URL 的請求會被拒絕。 12OK&#x3D;&gt; 在 cat.com 的網頁向 cat.com&#x2F;api&#x2F;users 發送請求NG&#x3D;&gt; 在 cat.com 的網頁向 dog.com&#x2F;api&#x2F;users 發送請求  如">
+    <meta name="description" content="當網頁向 API 要求資料時，如果網頁的 URL 與 API URL 不相同時，瀏覽器會報錯 Why因為瀏覽器大多有同源政策安全機制，讓網頁可自由向自己的 URL 送出請求，但對其他 URL 的請求會被拒絕。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CORS 跨域資源共享">
 <meta property="og:url" content="https://joy-honchan.github.io/blog/2023/03/22/cors-explain/index.html">
 <meta property="og:site_name" content="Joy&#39;s Frontend Learning Blog">
-<meta property="og:description" content="當網頁向 API 要求資料時，如果網頁的 URL 與 API URL 不相同時，瀏覽器會報錯 Why因為瀏覽器大多有同源政策安全機制，讓網頁可自由向自己的 URL 送出請求，但對其他 URL 的請求會被拒絕。 12OK&#x3D;&gt; 在 cat.com 的網頁向 cat.com&#x2F;api&#x2F;users 發送請求NG&#x3D;&gt; 在 cat.com 的網頁向 dog.com&#x2F;api&#x2F;users 發送請求  如">
+<meta property="og:description" content="當網頁向 API 要求資料時，如果網頁的 URL 與 API URL 不相同時，瀏覽器會報錯 Why因為瀏覽器大多有同源政策安全機制，讓網頁可自由向自己的 URL 送出請求，但對其他 URL 的請求會被拒絕。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://joy-honchan.github.io/blog/2023/03/22/cors-explain/cors-origin.png">
 <meta property="og:image" content="https://joy-honchan.github.io/blog/2023/03/22/cors-explain/cors-access-control-allow-origin.png">
 <meta property="og:image" content="https://joy-honchan.github.io/blog/2023/03/22/cors-explain/cors-preflight.png">
 <meta property="article:published_time" content="2023-03-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-08-23T15:31:13.955Z">
+<meta property="article:modified_time" content="2023-09-07T16:39:33.707Z">
 <meta property="article:author" content="Joy Honchan">
 <meta property="article:tag" content="CORS">
 <meta name="twitter:card" content="summary">
@@ -132,13 +132,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/blog/tags/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -216,6 +216,8 @@
     
     <div class="post-body" itemprop="articleBody"><p>當網頁向 API 要求資料時，如果網頁的 URL 與 API URL 不相同時，瀏覽器會報錯</p>
 <h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><p>因為<strong>瀏覽器</strong>大多有同源政策安全機制，讓網頁可自由向自己的 URL 送出請求，但對其他 URL 的請求會被拒絕。</p>
+<span id="more"></span>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">OK=&gt; 在 cat.com 的網頁向 cat.com/api/users 發送請求</span><br><span class="line">NG=&gt; 在 cat.com 的網頁向 dog.com/api/users 發送請求</span><br></pre></td></tr></table></figure>
 
 <p>如果沒有同源政策可能會發生的情況：不肖網站在使用者不知情的情況下向銀行網站發送轉帳請求。</p>
@@ -279,13 +281,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/blog/2023/03/13/recursion/" rel="prev" title="Recursion 遞迴">
-                  <i class="fa fa-angle-left"></i> Recursion 遞迴
+                <a href="/blog/2023/03/17/closure/" rel="prev" title="Closure 用途">
+                  <i class="fa fa-angle-left"></i> Closure 用途
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/blog/2023/04/06/git-stash/" rel="next" title="git-stash">
-                  git-stash <i class="fa fa-angle-right"></i>
+                <a href="/blog/2023/04/06/git-stash/" rel="next" title="我幫你存起來 - Git Stash">
+                  我幫你存起來 - Git Stash <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>

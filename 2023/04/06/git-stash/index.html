@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"joy-honchan.github.io","root":"/blog/","images":"/blog/images","scheme":"Muse","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/blog/js/config.js"></script>
 
-    <meta name="description" content="Have this ever happen to you? 當你在某分支大展身手時，同事走過來問你問題，但他的問題只出現在另一支分支裡，這時候該怎麼辦呢? 你研究一個新功能到一半，需要臨時中斷處理別的事情。你想保留寫到一半的 code 但又不想要影響到既有的 code  你該試試 Git Stash!git stash 是一個小暫存庫，能幫你把 code 收好，等你需要時再叫出來，不會影響目前分支">
+    <meta name="description" content="Have this ever happen to you? 當你在某分支大展身手時，同事走過來問你問題，但他的問題只出現在另一支分支裡，這時候該怎麼辦呢? 你研究一個新功能到一半，需要臨時中斷處理別的事情。你想保留寫到一半的 code 但又不想要影響到既有的 code  你該試試 Git Stash!">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git-stash">
+<meta property="og:title" content="我幫你存起來 - Git Stash">
 <meta property="og:url" content="https://joy-honchan.github.io/blog/2023/04/06/git-stash/index.html">
 <meta property="og:site_name" content="Joy&#39;s Frontend Learning Blog">
-<meta property="og:description" content="Have this ever happen to you? 當你在某分支大展身手時，同事走過來問你問題，但他的問題只出現在另一支分支裡，這時候該怎麼辦呢? 你研究一個新功能到一半，需要臨時中斷處理別的事情。你想保留寫到一半的 code 但又不想要影響到既有的 code  你該試試 Git Stash!git stash 是一個小暫存庫，能幫你把 code 收好，等你需要時再叫出來，不會影響目前分支">
+<meta property="og:description" content="Have this ever happen to you? 當你在某分支大展身手時，同事走過來問你問題，但他的問題只出現在另一支分支裡，這時候該怎麼辦呢? 你研究一個新功能到一半，需要臨時中斷處理別的事情。你想保留寫到一半的 code 但又不想要影響到既有的 code  你該試試 Git Stash!">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-05T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-08-23T15:29:59.731Z">
+<meta property="article:modified_time" content="2023-09-07T16:40:01.223Z">
 <meta property="article:author" content="Joy Honchan">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
@@ -37,10 +37,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://joy-honchan.github.io/blog/2023/04/06/git-stash/","path":"2023/04/06/git-stash/","title":"git-stash"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://joy-honchan.github.io/blog/2023/04/06/git-stash/","path":"2023/04/06/git-stash/","title":"我幫你存起來 - Git Stash"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>git-stash | Joy's Frontend Learning Blog</title>
+<title>我幫你存起來 - Git Stash | Joy's Frontend Learning Blog</title>
   
 
 
@@ -128,13 +128,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/blog/tags/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -182,12 +182,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="git-stash | Joy's Frontend Learning Blog">
+      <meta itemprop="name" content="我幫你存起來 - Git Stash | Joy's Frontend Learning Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          git-stash
+          我幫你存起來 - Git Stash
         </h1>
 
         <div class="post-meta-container">
@@ -214,7 +214,9 @@
 <li>當你在某分支大展身手時，同事走過來問你問題，但他的問題只出現在另一支分支裡，這時候該怎麼辦呢?</li>
 <li>你研究一個新功能到一半，需要臨時中斷處理別的事情。你想保留寫到一半的 code 但又不想要影響到既有的 code</li>
 </ul>
-<h3 id="你該試試-Git-Stash"><a href="#你該試試-Git-Stash" class="headerlink" title="你該試試 Git Stash!"></a>你該試試 Git Stash!</h3><p>git stash 是一個小暫存庫，能幫你把 code 收好，等你需要時再叫出來，不會影響目前分支的 commit</p>
+<h3 id="你該試試-Git-Stash"><a href="#你該試試-Git-Stash" class="headerlink" title="你該試試 Git Stash!"></a>你該試試 Git Stash!</h3><span id="more"></span>
+
+<p>git stash 是一個小暫存庫，能幫你把 code 收好，等你需要時再叫出來，不會影響目前分支的 commit</p>
 <h2 id="指令介紹"><a href="#指令介紹" class="headerlink" title="指令介紹"></a>指令介紹</h2><p><strong><code>git stash save -u 註解</code></strong> - 將 untrack 和 unstage 檔案都存進 stash， -u 表示 untrack 也要加入。</p>
 <p><strong><code>git stash list</code></strong> - 查看目前 stash 有幾筆。stash 的資料結構為 <strong>Stack</strong>，所以會先進後出。</p>
 <p><strong><code>git stash pop 資料index</code></strong> - 將第幾筆 stash 取出，如果不指定 index，則 pop 最上面一筆。<br>EX: git stash pop 1。pop 後資料會從 stash stack 中剔除。</p>

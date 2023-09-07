@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"joy-honchan.github.io","root":"/blog/","images":"/blog/images","scheme":"Muse","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/blog/js/config.js"></script>
 
-    <meta name="description" content="What is Electron for?Electron 簡單來說就是使用 Web 技術寫桌面應用程式，讓開發者不需要另外學新的語言。這邊介紹幾個 Electron 的基本概念。 Main Process &amp; Render ProcessMain 是主程序，Render 是單個視窗的程序。 Main 執行後會產生個別的 Render process，所以各視窗間的 render 不影響。">
+    <meta name="description" content="What is Electron for?Electron 簡單來說就是使用 Web 技術寫桌面應用程式，讓開發者不需要另外學新的語言。這邊介紹幾個 Electron 的基本概念。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Electron 概念介紹">
 <meta property="og:url" content="https://joy-honchan.github.io/blog/2023/07/05/electron-concept/index.html">
 <meta property="og:site_name" content="Joy&#39;s Frontend Learning Blog">
-<meta property="og:description" content="What is Electron for?Electron 簡單來說就是使用 Web 技術寫桌面應用程式，讓開發者不需要另外學新的語言。這邊介紹幾個 Electron 的基本概念。 Main Process &amp; Render ProcessMain 是主程序，Render 是單個視窗的程序。 Main 執行後會產生個別的 Render process，所以各視窗間的 render 不影響。">
+<meta property="og:description" content="What is Electron for?Electron 簡單來說就是使用 Web 技術寫桌面應用程式，讓開發者不需要另外學新的語言。這邊介紹幾個 Electron 的基本概念。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-07-04T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-08-28T14:03:59.853Z">
+<meta property="article:modified_time" content="2023-09-07T16:39:41.835Z">
 <meta property="article:author" content="Joy Honchan">
 <meta property="article:tag" content="Electron">
 <meta name="twitter:card" content="summary">
@@ -128,13 +128,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/blog/tags/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -211,6 +211,8 @@
     
     
     <div class="post-body" itemprop="articleBody"><h2 id="What-is-Electron-for"><a href="#What-is-Electron-for" class="headerlink" title="What is Electron for?"></a>What is Electron for?</h2><p>Electron 簡單來說就是使用 Web 技術寫桌面應用程式，讓開發者不需要另外學新的語言。<br>這邊介紹幾個 Electron 的基本概念。</p>
+<span id="more"></span>
+
 <h2 id="Main-Process-amp-Render-Process"><a href="#Main-Process-amp-Render-Process" class="headerlink" title="Main Process &amp; Render Process"></a>Main Process &amp; Render Process</h2><p>Main 是主程序，Render 是單個視窗的程序。</p>
 <p>Main 執行後會產生個別的 Render process，所以各視窗間的 render 不影響。</p>
 <p>除了在 Main process 可以產生新 Render process 之外， Render process 也可以產生新 Render process (EX: 在 Menu 中設置 click&#x3D;{createWindow} )</p>
