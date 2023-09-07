@@ -20,6 +20,8 @@ for (let i = 0; i < arr.length; i++) {
 
 但 for loop 還有另外兩種
 
+<!--more-->
+
 1. for ( **_item_** of **_iteration_** ) loop value，只能用在可 iterate 的物件(Array, String, Map)，所以一般 Object 不可用
 
 ### Array

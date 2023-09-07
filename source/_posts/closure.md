@@ -6,7 +6,9 @@ tags: [JavaScript, Closure]
 
 今天來聊聊 閉包 Closure 在幹嘛以及能幹嘛
 
-巢狀 function 中，內部 function 仍可以外部 function 執行完畢後，取得外部 function 的變數
+在巢狀 function 中，內部 function 仍可以外部 function 執行完畢後，取得外部 function 的變數
+
+<!--more-->
 
 閉包的好處：
 

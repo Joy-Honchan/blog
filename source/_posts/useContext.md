@@ -6,6 +6,8 @@ tags: [React, Hook, useContext]
 
 根據 React 官方文件，useContext 可以解決 Prop Drilling 的問題，但 Prop Drilling 是什麼呢? Context 又是什麼?
 
+<!--more-->
+
 # 名詞解釋
 
 ## Prop Drilling

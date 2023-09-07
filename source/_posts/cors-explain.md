@@ -10,6 +10,8 @@ tags: [CORS]
 
 因為**瀏覽器**大多有同源政策安全機制，讓網頁可自由向自己的 URL 送出請求，但對其他 URL 的請求會被拒絕。
 
+<!--more-->
+
 ```
 OK=> 在 cat.com 的網頁向 cat.com/api/users 發送請求
 NG=> 在 cat.com 的網頁向 dog.com/api/users 發送請求

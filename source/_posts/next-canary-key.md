@@ -6,6 +6,8 @@ tags: [Next, Error Shooting]
 
 今天用 Next 開發時遇到一個狀況，在使用 MUI 的 [AutoComplete](https://mui.com/material-ui/react-autocomplete/) 時跳出兩個 Error，雖然沒有影響操作，但還是查了一下如何解決。
 
+<!--more-->
+
 ## Warning: Prop htmlFor did not match ...
 
 錯誤訊息還給了我 Server id 和 Client id，兩個 id 並不相同。我後來在一個 label 上找到 Server id，但仍不知道該如何解決。後來我在某個 UI 框架的 Github issue 裡找到[答案](https://github.com/shadcn-ui/ui/issues/1023#issuecomment-1657288374)。

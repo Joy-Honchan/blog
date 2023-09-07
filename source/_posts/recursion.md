@@ -9,6 +9,8 @@ tags: [JavaScript, Recursion]
 簡單來說，遞迴就是一個自己呼叫自己的函式。
 為了避免無窮迴圈，在 Recursion 中必須要有一個出口機制(**_Base Case_**)。可做為迭代(**_iteration_**)，如 for 、 while loop 的替代，但通常效率及記憶體使用量都較差。
 
+<!--more-->
+
 ## 題目範例
 
 ```

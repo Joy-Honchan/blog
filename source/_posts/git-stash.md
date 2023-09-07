@@ -11,6 +11,8 @@ tags: [Git]
 
 ### 你該試試 Git Stash!
 
+<!--more-->
+
 git stash 是一個小暫存庫，能幫你把 code 收好，等你需要時再叫出來，不會影響目前分支的 commit
 
 ## 指令介紹

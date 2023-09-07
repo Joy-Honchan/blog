@@ -9,6 +9,8 @@ tags: [Electron]
 Electron 簡單來說就是使用 Web 技術寫桌面應用程式，讓開發者不需要另外學新的語言。
 這邊介紹幾個 Electron 的基本概念。
 
+<!--more-->
+
 ## Main Process & Render Process
 
 Main 是主程序，Render 是單個視窗的程序。

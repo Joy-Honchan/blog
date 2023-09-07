@@ -4,7 +4,12 @@ date: 2023-09-08
 tags: [JavaScript, Event Target]
 ---
 
+這是我在初學 TypeScript 時遇到的問題，現在做個補充筆記。
+
 React Form 的 onSubmit ，callback 裡的 event.target 總是找不到 element 屬性
+改成 currentTarget 即可 - **e.currentTarget .sound.value**
+
+<!--more-->
 
 ```typescript
 // Error: Property 'sound' does not exist on type 'EventTarget'
@@ -24,8 +29,6 @@ return (
   </form>
 );
 ```
-
-改成 currentTarget 即可 - **e.currentTarget .sound.value**
 
 ## event.target
 

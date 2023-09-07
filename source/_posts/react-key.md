@@ -8,6 +8,8 @@ tags: [React]
 
 當 React 在用 VirtualDom 作比對的時候，他要有辦法辨識哪些 element 是新的、哪些 element 有做改變。特別是 map 出來的 element，因為 render 出來的東西都一樣只是裡面的參數不同，所以必須要有獨特的 key 讓 React 去做比對。
 
+<!--more-->
+
 當 List Element 是向下增長時，因為 index 不會重新分配，較不會出現問題。但當 List Element 會重新排序( EX: 從上面新增 or sort )時，React 會沒有依據去分辨 element 在舊 VirtualDom 中是否變動或存在，進而造成不必要的 re-render。當你的 DataList 是往下增長時，因為 index 累加而不是重新排序，較不會出現問題。
 
 ### 實作
