@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"joy-honchan.github.io","root":"/blog/","images":"/blog/images","scheme":"Muse","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/blog/js/config.js"></script>
+
+    <meta name="description" content="有時候做網頁會想要加上一些小動畫或小圖案，但放上 jpg 圖片或 gif 動圖放大後圖片又會糊掉。這時可以改使用 SVG。SVG 是向量圖，不像 JPG 或 PNG 點陣圖放大後會一格一格的；此外，在修改顏色、邊線或是製作動畫也能直接使用 CSS 來控制。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SVG 概念及使用">
+<meta property="og:url" content="https://joy-honchan.github.io/blog/2023/10/08/svg-concept/index.html">
+<meta property="og:site_name" content="Joy&#39;s Frontend Learning Blog">
+<meta property="og:description" content="有時候做網頁會想要加上一些小動畫或小圖案，但放上 jpg 圖片或 gif 動圖放大後圖片又會糊掉。這時可以改使用 SVG。SVG 是向量圖，不像 JPG 或 PNG 點陣圖放大後會一格一格的；此外，在修改顏色、邊線或是製作動畫也能直接使用 CSS 來控制。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://joy-honchan.github.io/blog/2023/10/08/svg-concept/svg-concept-example.png">
+<meta property="article:published_time" content="2023-10-08T03:11:35.000Z">
+<meta property="article:modified_time" content="2023-10-08T03:52:19.395Z">
+<meta property="article:author" content="Joy Honchan">
+<meta property="article:tag" content="SVG">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://joy-honchan.github.io/blog/2023/10/08/svg-concept/svg-concept-example.png">
+
+
+<link rel="canonical" href="https://joy-honchan.github.io/blog/2023/10/08/svg-concept/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://joy-honchan.github.io/blog/2023/10/08/svg-concept/","path":"2023/10/08/svg-concept/","title":"SVG 概念及使用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>SVG 概念及使用 | Joy's Frontend Learning Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Joy's Frontend Learning Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Records of what I've learned and mistakes I've made</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-svg-gt-%E6%A8%99%E7%B1%A4"><span class="nav-number">1.</span> <span class="nav-text">&lt;svg&gt; 標籤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Viewport%E3%80%81Viewbox"><span class="nav-number">2.</span> <span class="nav-text">Viewport、Viewbox</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%96%E5%BD%A2-Tag"><span class="nav-number">3.</span> <span class="nav-text">圖形 Tag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%96%E5%BD%A2-Tag-%E9%80%9A%E7%94%A8-attribute"><span class="nav-number">4.</span> <span class="nav-text">圖形 Tag 通用 attribute</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tooltip"><span class="nav-number">5.</span> <span class="nav-text">Tooltip</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Import-SVG-%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number"></span> <span class="nav-text">Import SVG 的方法</span></a></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Joy Honchan"
+      src="/blog/uploads/profilepic_rabbit.jpg">
+  <p class="site-author-name" itemprop="name">Joy Honchan</p>
+  <div class="site-description" itemprop="description">It's OK to feel panic sometimes while learning new stuffs. Just remeber, you'll become a better person then yesterday.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/blog/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/blog/tags/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Joy-Honchan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Joy-Honchan" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:chandler0204e@gmail.com" title="E-Mail → mailto:chandler0204e@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://joy-honchan.github.io/blog/2023/10/08/svg-concept/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/uploads/profilepic_rabbit.jpg">
+      <meta itemprop="name" content="Joy Honchan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joy's Frontend Learning Blog">
+      <meta itemprop="description" content="It's OK to feel panic sometimes while learning new stuffs. Just remeber, you'll become a better person then yesterday.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="SVG 概念及使用 | Joy's Frontend Learning Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SVG 概念及使用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-08 11:11:35" itemprop="dateCreated datePublished" datetime="2023-10-08T11:11:35+08:00">2023-10-08</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>有時候做網頁會想要加上一些小動畫或小圖案，但放上 jpg 圖片或 gif 動圖放大後圖片又會糊掉。這時可以改使用 SVG。<br>SVG 是向量圖，不像 JPG 或 PNG 點陣圖放大後會一格一格的；此外，在修改顏色、邊線或是製作動畫也能直接使用 CSS 來控制。</p>
+<span id="more"></span>
+
+<h2 id="lt-svg-gt-標籤"><a href="#lt-svg-gt-標籤" class="headerlink" title="&lt;svg&gt; 標籤"></a>&lt;svg&gt; 標籤</h2><p>畫布，可控制 width、height</p>
+<p>可想像成一個 div，內含各種圖形</p>
+<h2 id="Viewport、Viewbox"><a href="#Viewport、Viewbox" class="headerlink" title="Viewport、Viewbox"></a>Viewport、Viewbox</h2><p>viewport 是 svg 圖片的大小，viewbox 是可視範圍，並不會改變內容物的比例</p>
+<p><strong>viewbox&#x3D;”<code>x</code>, <code>y</code>, <code>width</code>, <code>height</code>”</strong></p>
+<p>預設 viewport &#x3D; viewbox</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;100&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100&quot;</span> <span class="attr">style</span>=<span class="string">&quot;border: black solid 1px&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span></span></span><br><span class="line"><span class="tag">    <span class="attr">cx</span>=<span class="string">&quot;50&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">cy</span>=<span class="string">&quot;50&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">r</span>=<span class="string">&quot;40&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">stroke</span>=<span class="string">&quot;green&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">stroke-width</span>=<span class="string">&quot;4&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">fill</span>=<span class="string">&quot;yellow&quot;</span></span></span><br><span class="line"><span class="tag">  /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line"></span><br><span class="line">// 因為 Viewbox 小，可視範圍比畫布小，所以只能看到圓圈的一部分</span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span></span></span><br><span class="line"><span class="tag">  <span class="attr">width</span>=<span class="string">&quot;100&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">height</span>=<span class="string">&quot;100&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">style</span>=<span class="string">&quot;border: black solid 1px&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">viewbox</span>=<span class="string">&quot;0 0 50 10&quot;</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span></span></span><br><span class="line"><span class="tag">    <span class="attr">cx</span>=<span class="string">&quot;50&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">cy</span>=<span class="string">&quot;50&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">r</span>=<span class="string">&quot;40&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">stroke</span>=<span class="string">&quot;green&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">stroke-width</span>=<span class="string">&quot;4&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">fill</span>=<span class="string">&quot;yellow&quot;</span></span></span><br><span class="line"><span class="tag">  /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line"></span><br><span class="line">// 因為可視範圍大於畫布，所以視覺上圓圈會比較小</span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span></span></span><br><span class="line"><span class="tag">  <span class="attr">width</span>=<span class="string">&quot;100&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">height</span>=<span class="string">&quot;100&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">style</span>=<span class="string">&quot;border: black solid 1px&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">viewbox</span>=<span class="string">&quot;0 0 100 200&quot;</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span></span></span><br><span class="line"><span class="tag">    <span class="attr">cx</span>=<span class="string">&quot;50&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">cy</span>=<span class="string">&quot;50&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">r</span>=<span class="string">&quot;40&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">stroke</span>=<span class="string">&quot;green&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">stroke-width</span>=<span class="string">&quot;4&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">fill</span>=<span class="string">&quot;yellow&quot;</span></span></span><br><span class="line"><span class="tag">  /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<img src="/blog/2023/10/08/svg-concept/svg-concept-example.png" class="">
+
+<h2 id="圖形-Tag"><a href="#圖形-Tag" class="headerlink" title="圖形 Tag"></a>圖形 Tag</h2><ul>
+<li><p>矩形：rect x&#x3D;<strong>x 位置</strong> y&#x3D;<strong>y 位置</strong> rx&#x2F;ry&#x3D;<strong>圓角(通常 rx&#x3D;ry)</strong> width height</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">rect</span> <span class="attr">x</span>=<span class="string">&quot;50&quot;</span> <span class="attr">y</span>=<span class="string">&quot;50&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100&quot;</span> <span class="attr">rx</span>=<span class="string">&quot;5&quot;</span> <span class="attr">ry</span>=<span class="string">&quot;5&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>圓形：circle cx&#x3D;<strong>x 位置</strong> cy&#x3D;<strong>y 位置</strong> r&#x3D;<strong>半徑</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">circle</span></span></span><br><span class="line"><span class="tag">  <span class="attr">cx</span>=<span class="string">&quot;78&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">cy</span>=<span class="string">&quot;78&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">r</span>=<span class="string">&quot;60&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">stroke</span>=<span class="string">&quot;#f77465&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">stroke-width</span>=<span class="string">&quot;18&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">fill</span>=<span class="string">&quot;#f75745&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">opacity</span>=<span class="string">&quot;0.8&quot;</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>橢圓： ellipse cx&#x3D;<strong>x 位置</strong> cy&#x3D;<strong>y 位置</strong> rx&#x3D;<strong>x 半徑</strong> ry&#x3D;<strong>y 半徑</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ellipse</span> <span class="attr">cx</span>=<span class="string">&quot;200&quot;</span> <span class="attr">cy</span>=<span class="string">&quot;80&quot;</span> <span class="attr">rx</span>=<span class="string">&quot;100&quot;</span> <span class="attr">ry</span>=<span class="string">&quot;50&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;white&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>直線：line x1&#x3D;<strong>起點 x</strong> y1&#x3D;<strong>起點 y</strong> x2&#x3D;<strong>終點 x</strong> y2&#x3D;<strong>終點 y</strong></p>
+</li>
+<li><p>多邊形：polygon points&#x3D;<strong>點的位置 x,y 為一組</strong></p>
+</li>
+<li><p>文字：text x&#x3D;<strong>x 位置</strong> y&#x3D;<strong>y 位置</strong> font-szie&#x3D;<strong>文字大小</strong> text-anchor&#x3D;<strong>對齊點 start | middle | end</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text</span> <span class="attr">x</span>=<span class="string">&quot;50&quot;</span> <span class="attr">y</span>=<span class="string">&quot;50&quot;</span> <span class="attr">font</span>=<span class="string">&quot;14&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;black&quot;</span>&gt;</span>Hello!<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>曲線：polyline points &#x3D;<strong>x1,y1 x2,y2 …</strong> polyline 不會封起來，polygon 會</p>
+</li>
+<li><p>路徑：path d&#x3D;<strong>敘述</strong> <strong>D3 中最常使用</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;M55,0A55,55,0,1,1,-55,0L-45,0A45,45,0,1,0,45,0Z&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>群組：g 中的 Tag 都會繼承 g 的通用 attribute</p>
+<aside>
+因為 <path\/> 沒有 x y 屬性，所以要用<g></g>群組起來後再設定 g 的變形(transform)
+
+<p>transform 屬性：</p>
+<ul>
+<li>translate(x,y) 將物體移動 x, y</li>
+<li>scale(x,y) 將物體放大縮小，只有一參數會調整整體 scale，兩參數會個別調整 x y</li>
+<li>rotate(angle, pointX, pointY) 不提供 points，圖形會以圖形的原點為中心旋轉</li>
+<li>skewX(angle)、skewY(angle) 依據 X、Y 軸傾斜壓縮圖形</aside></li>
+</ul>
+</li>
+</ul>
+<h2 id="圖形-Tag-通用-attribute"><a href="#圖形-Tag-通用-attribute" class="headerlink" title="圖形 Tag 通用 attribute"></a>圖形 Tag 通用 attribute</h2><ul>
+<li>fill &#x3D; ”color” 填滿顏色</li>
+<li>stroke &#x3D; “color” 邊緣顏色</li>
+<li>strock-width &#x3D; “number” 邊緣粗細</li>
+<li>stroke-opacity &#x3D; “0~1” 邊緣透明度</li>
+<li>stroke-dasharray &#x3D; “4 4” 邊緣虛線，第一個數字為線的長度比，第二個數字為空白處的長度比</li>
+<li>opacity &#x3D; “0~1” 整體透明度</li>
+<li>fill-rule &#x3D; “nonzero | evenodd” 填色規則(判斷哪裡是圖案內部的方法)</li>
+</ul>
+<blockquote>
+<p>或是用 style 代入 EX: style &#x3D; “ fill &#x3D; blue; stroke &#x3D; black; opacity: 0.5”</p>
+</blockquote>
+<h2 id="Tooltip"><a href="#Tooltip" class="headerlink" title="Tooltip"></a>Tooltip</h2><p>原生 tooltip 可以用 title 產生，將 title 夾在 SVG 圖形中間即可</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;rect x=&#123;<span class="number">0</span>&#125; y=&#123;<span class="number">10</span>&#125; width=&#123;<span class="number">100</span>&#125; height=&#123;<span class="number">100</span>&#125; fill=<span class="string">&quot;red&quot;</span>&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line">&lt;/rect&gt;</span><br><span class="line"><span class="comment">// hover 就會出現 Hello</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="Import-SVG-的方法"><a href="#Import-SVG-的方法" class="headerlink" title="Import SVG 的方法"></a>Import SVG 的方法</h1><ol>
+<li>直接 import 並掛在 img.src 上</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">LogoUrl</span> <span class="keyword">from</span> <span class="string">&#x27;assets/logo.svg&#x27;</span></span><br><span class="line">...</span><br><span class="line">&lt;img src=&#123;<span class="title class_">LogoUrl</span>&#125; /&gt;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>CRA app 內建 SVGR，import ReactComponent<br>使用 create-react-app 時， 會預安裝 plugin SVGR，能將 SVG 直接 import 成 React Component</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">ReactComponent</span> <span class="keyword">as</span> <span class="title class_">LogoIcon</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;assets/logo.svg&#x27;</span></span><br><span class="line">...</span><br><span class="line">&lt;<span class="title class_">LogoIcon</span> /&gt;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>另外安裝 SVGR，以 vite 為例<br><code>vite-plugin-svgr</code> 是 vite 用的 SVGR 套件，安裝後加入 vite.config.js</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  vite.config.js</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">import</span> svgr <span class="keyword">from</span> <span class="string">&quot;vite-plugin-svgr&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="attr">plugins</span>: [<span class="title function_">svgr</span>(), ...],</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">ReactComponent</span> <span class="keyword">as</span> <span class="title class_">LogoIcon</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;assets/logo.svg&#x27;</span></span><br><span class="line">...</span><br><span class="line">&lt;<span class="title class_">LogoIcon</span> /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>使用 TypeScript 的話，需要在 App.tsx 或會用到此功能的 component 加入 type declaration</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;reference types=&quot;vite-plugin-svgr/client&quot; /&gt;</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/SVG/" rel="tag"># SVG</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/2023/09/08/event-target-currenttarget/" rel="prev" title="event.target，currentTarget 傻傻分不清楚?">
+                  <i class="fa fa-angle-left"></i> event.target，currentTarget 傻傻分不清楚?
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Joy Honchan</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/schemes/muse.js"></script><script src="/blog/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -27,7 +27,7 @@
 <meta property="og:description" content="根據 React 官方文件，useContext 可以解決 Prop Drilling 的問題，但 Prop Drilling 是什麼呢? Context 又是什麼?">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-05-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-09-07T16:40:30.519Z">
+<meta property="article:modified_time" content="2023-10-08T03:00:15.825Z">
 <meta property="article:author" content="Joy Honchan">
 <meta property="article:tag" content="React">
 <meta property="article:tag" content="Hook">
@@ -130,13 +130,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/blog/tags/">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -243,7 +243,7 @@
 <blockquote>
 <p>💡 甚至可以將從上層 Context 接收到的資料加工後再傳下去，因為 useContext 會去找距離最近的 Provider，return 該值。<br>當 return 回來的值改變，就會觸發 re-render</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useContext &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">LevelContext</span> &#125; <span class="keyword">from</span> <span class="string">&quot;./LevelContext&quot;</span>;</span><br><span class="line">...</span><br><span class="line">  <span class="keyword">const</span> <span class="attr">level</span>: number = <span class="title function_">useContext</span>(<span class="title class_">LevelContext</span>);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;section&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">LevelContext.Provider</span> <span class="attr">value</span>=<span class="string">&#123;level</span> + <span class="attr">1</span>&#125;&gt;</span></span></span><br><span class="line"><span class="language-xml">        &#123;children&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">LevelContext.Provider</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useContext &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">LevelContext</span> &#125; <span class="keyword">from</span> <span class="string">&quot;./LevelContext&quot;</span>;</span><br><span class="line">...</span><br><span class="line">  <span class="keyword">const</span> <span class="attr">level</span>: number = <span class="title function_">useContext</span>(<span class="title class_">LevelContext</span>);</span><br><span class="line">  ...</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;section&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">LevelContext.Provider</span> <span class="attr">value</span>=<span class="string">&#123;level</span> + <span class="attr">1</span>&#125;&gt;</span></span></span><br><span class="line"><span class="language-xml">        &#123;children&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">LevelContext.Provider</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br></pre></td></tr></table></figure>
 
     </div>
 
