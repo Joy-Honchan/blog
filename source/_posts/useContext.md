@@ -88,6 +88,7 @@ import { useContext } from "react";
 import { LevelContext } from "./LevelContext";
 ...
   const level: number = useContext(LevelContext);
+  ...
   return (
     <div className="section">
       <LevelContext.Provider value={level + 1}>
@@ -95,5 +96,4 @@ import { LevelContext } from "./LevelContext";
       </LevelContext.Provider>
     </div>
   );
-}
 ```
